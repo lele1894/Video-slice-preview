@@ -14,5 +14,5 @@
 <br>
 “.py”结尾的文件是源码，需要请自行安装所需模块。<br>
 <br>
-<div align=center><img src="https://lele1894.tk/img/logo.png"></div>
+<div align=center><img src="https://avatars.githubusercontent.com/u/11767608?v=4"></div>
 <br>
