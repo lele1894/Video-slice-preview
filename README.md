@@ -6,7 +6,7 @@
 
 网页预览
 
-![网页预览]([02.gif](https://github.com/lele1894/Video-slice-preview/blob/5b88756cbaf2614171e0a0dcd82077c2381e7087/02.gif))
+![网页预览](https://github.com/lele1894/Video-slice-preview/blob/5b88756cbaf2614171e0a0dcd82077c2381e7087/02.gif)
 
 “.exe”结尾都是可执行文件，优点是不用自行安装模块。
 
