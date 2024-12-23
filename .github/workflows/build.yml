@@ -28,13 +28,14 @@ jobs:
         
     - name: 构建 EXE
       run: |
-        pyinstaller --onefile --icon=app.ico --name video-to-gif-preview --hidden-import tkinterdnd2 --hidden-import ttkthemes "一键将视频分割成动图预览网页.py"
+        pyinstaller --onefile --icon=app.ico --name video-to-gif-preview --hidden-import tkinterdnd2 --hidden-import ttkthemes --collect-all tkinterdnd2 "一键将视频分割成动图预览网页.py"
         
     - name: 上传构建产物
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: video-to-gif-preview
         path: dist/*
+        compression-level: 0
 
     - name: 创建发布 (手动运行)
       if: github.event_name == 'workflow_dispatch'
