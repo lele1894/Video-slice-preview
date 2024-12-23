@@ -1,11 +1,12 @@
 # 视频切片转GIF用网页预览
 <br>
 一键将视频分割成动图预览网页
+<br>
 
 ![界面预览](01.png)
 
-<div align=center><img src="https://raw.githubusercontent.com/lele1894/python/main/images/02.gif" width=50% height=50% /></div>
-<br>
+![界面预览](02.gif)
+
 <br>
 “.exe”结尾都是可执行文件，优点是不用自行安装模块。<br>
 要求：<br>
