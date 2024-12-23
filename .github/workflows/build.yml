@@ -1,9 +1,6 @@
 name: 构建exe
 
 on:
-  push:
-    tags:
-      - 'v*'
   workflow_dispatch:
     inputs:
       version:
