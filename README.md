@@ -2,7 +2,7 @@
 <br>
 一键将视频分割成动图预览网页
 <br>
-![界面预览](/images/01.png)
+![界面预览](images/01.png)
 <br>
 <div align=center><img src="https://raw.githubusercontent.com/lele1894/python/main/images/02.gif" width=50% height=50% /></div>
 <br>
