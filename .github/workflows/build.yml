@@ -1,0 +1,67 @@
+name: 构建exe
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: '版本号 (例如: v1.0.0)'
+        required: true
+        default: 'v1.0.0'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: 设置 Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: 安装依赖
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pyinstaller
+        
+    - name: 构建 EXE
+      run: |
+        pyinstaller --onefile --icon=app.ico "一键将视频分割成动图预览网页.py"
+        
+    - name: 上传构建产物
+      uses: actions/upload-artifact@v3
+      with:
+        name: video-to-gif-preview
+        path: dist/*
+        
+    - name: 创建发布 (从标签)
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v1
+      with:
+        body: |
+          ### 使用说明
+          1. 需要安装 FFmpeg 并添加到系统环境变量
+          2. 或将 ffmpeg.exe 和 ffprobe.exe 放在程序同目录下
+          
+          FFmpeg 下载地址：https://github.com/BtbN/FFmpeg-Builds/releases
+        files: |
+          dist/*
+
+    - name: 创建发布 (手动运行)
+      if: github.event_name == 'workflow_dispatch'
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ github.event.inputs.version }}
+        body: |
+          ### 使用说明
+          1. 需要安装 FFmpeg 并添加到系统环境变量
+          2. 或将 ffmpeg.exe 和 ffprobe.exe 放在程序同目录下
+          
+          FFmpeg 下载地址：https://github.com/BtbN/FFmpeg-Builds/releases
+        files: |
+          dist/* 
